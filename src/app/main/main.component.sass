@@ -1,0 +1,116 @@
+@import '~compass-mixins/lib/compass/css3'
+
+@function multiple-box-shadow ($n) 
+  $value: '#{random(3000)}px #{random(20000)}px #FFF'
+  @for $i from 2 through $n
+    $value: '#{$value} , #{random(3000)}px #{random(2000)}px #FFF'
+
+  @return unquote($value)
+
+$shadows-small:  multiple-box-shadow(500)
+$shadows-medium: multiple-box-shadow(200)
+$shadows-big:    multiple-box-shadow(100)
+
+mat-card
+    width: 800px
+    margin: calc(50% - 400px) 
+    background-color: #42424221
+
+    mat-card-title
+        margin: 15px
+        font-size: 32px
+    
+    mat-card-content
+        font-size: 20px
+        margin: 40px 80px
+        line-height: 26px
+        p
+            text-indent: 2em
+
+#greeting
+    margin: 45vh calc(50% - 500px)
+    width: 1000px
+    height: 10vh
+    font-size: 64px
+    color: white
+    text-align: center
+    white-space: pre
+    transition: width 0.3s, margin 0.3s, font-size 0.3s
+
+.flash
+    width: 40px
+    display: inline-block
+
+#stars, #stars2, #stars3
+    border-radius: 1px  
+    margin: 3000z
+
+#stars
+    width: 1px
+    height: 1px
+    background: transparent
+    box-shadow: $shadows-small
+    animation: animStar 50s linear infinite
+        
+    &:after
+        content: " "
+        position: absolute
+        top: 2000px
+        width: 1px
+        height: 1px
+        background: transparent
+        box-shadow: $shadows-small
+        
+#stars2
+    width: 2px
+    height: 2px
+    background: transparent
+    box-shadow: $shadows-medium
+    animation: animStar 100s linear infinite
+        
+    &:after
+        content: " "
+        position: absolute
+        top: 2000px
+        width: 2px
+        height: 2px
+        background: transparent
+        box-shadow: $shadows-medium
+        
+#stars3
+    width: 3px
+    height: 3px
+    background: transparent
+    box-shadow: $shadows-big
+    animation: animStar 150s linear infinite
+            
+    &:after
+        content: " "
+        position: absolute
+        top: 2000px
+        width: 3px
+        height: 3px
+        background: transparent
+        box-shadow: $shadows-big
+        
+@keyframes animStar
+  from	
+    transform: translateY(0px)
+  to		
+    transform: translateY(-2000px)
+    
+@media screen and ( max-width: 1000px )
+    #greeting
+        width: 360px
+        font-size: 32px
+        margin: 45vh calc(50% - 180px)
+
+    mat-card
+        width: calc(100vw - 80px)
+        margin: 0 30px
+        mat-card-content
+            margin: 40px 40px 20px 40px
+
+    .flash
+        width: 20px
+        display: inline-block

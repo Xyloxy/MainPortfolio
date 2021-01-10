@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "portfolio-xylox": {
+      "hosting": {
+        "Portfolio": [
+          "portfolio-xylox"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "main": "portfolio-xylox"
+  }
+}
